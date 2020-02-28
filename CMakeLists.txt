@@ -52,10 +52,19 @@ list(APPEND CMAKE_MODULE_PATH "${CMAKE_SOURCE_DIR}/cmake/modules/")
 
 
 find_package(PkgConfig)
+
 option(WITH_GFLAGS "Gflags is here" ON)
 if(WITH_GFLAGS)
   find_package(gflags REQUIRED)
   set(HAVE_LIBGFLAGS ${GFLAGS_FOUND})
+endif()
+
+
+option(WITH_MYSQLPP "Mysqlpp is here" ON)
+if(WITH_MYSQLPP)
+  find_package(mysqlpp REQUIRED)
+  set(HAVE_LIBMYSQLPP ${MYSQLPP_FOUND})
+  include_directories(${MYSQLPP_INCLUDE_DIR})
 endif()
 
 
@@ -83,5 +92,6 @@ include_directories(${CMAKE_CURRENT_SOURCE_DIR})
 #添加子文件夹
 add_subdirectory(src)
 add_subdirectory(test)
+add_subdirectory(googletest)
 exec_program("cp compile_commands.json ../")
 

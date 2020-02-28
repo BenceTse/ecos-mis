@@ -1,0 +1,3 @@
+CREATE USER 'ecos-v2'@'%' IDENTIFIED BY 'ecos-v2';
+grant all privileges on *.* to 'ecos-v2'@'%';
+create database ecos;

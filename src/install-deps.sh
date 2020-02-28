@@ -44,7 +44,7 @@ case $ID in
     ubuntu)
         echo "Using apt-get to install dependencies"
         $SUDO apt-get install -y cmake g++ \
-        libgflags-dev;;
+        libgflags-dev mysql-client libmysql++-dev;;
         #libcurl4-openssl-dev libgflags-dev uuid-dev libev-dev libevent-dev libssl-dev;;
 	   
     centos)
@@ -52,7 +52,7 @@ case $ID in
         $SUDO yum install -y epel-release 
         #将CMak提升为Cmake3
         $SUDO yum install -y gcc-c++ cmake3 \
-        gflags-devel 
+        gflags-devel mysql++-devel
         #libcurl-devel gflags-devel libuuid-devel libevent-devel libev-devel openssl-devel
         ensure_decent_gcc_on_rh;;
     *)
